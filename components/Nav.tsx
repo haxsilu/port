@@ -6,8 +6,10 @@ import { AnimatePresence, motion } from "framer-motion";
 const LINKS = [
   { label: "Films", href: "#filmography" },
   { label: "Work", href: "#work" },
+  { label: "Editing", href: "#editing" },
   { label: "About", href: "#about" },
-  { label: "Awards", href: "#awards" },
+  { label: "Journey", href: "#journey" },
+  { label: "Ventures", href: "#ventures" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -52,7 +54,7 @@ export default function Nav({ visible }: { visible: boolean }) {
           onClick={() => go("#top")}
           className="font-display text-sm font-semibold tracked-tight text-fg"
         >
-          E. MARR
+          PULINDU
         </button>
 
         <button

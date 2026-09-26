@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_Sinhala } from "next/font/google";
 import "./globals.css";
 
 // Apple-style system stack: real San Francisco on Apple devices, Inter
@@ -11,17 +11,27 @@ const inter = Inter({
   display: "swap",
 });
 
+// Sinhala titles (රාලහාමී) have no coverage in SF, Inter, Helvetica or Arial,
+// so without this they render as empty boxes on most Windows and Linux
+// machines. Font fallback is per-glyph, so Latin type is untouched.
+const sinhala = Noto_Sans_Sinhala({
+  variable: "--font-sinhala",
+  subsets: ["sinhala"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Elias Marr — Director, Editor",
+  title: "Pulindu — Film Director, Editor, Storyteller",
   description:
-    "Elias Marr is a film director and editor working in quiet, restrained stories. Selected films, festival history, and contact.",
+    "Pulindu is a film director, editor and storyteller from Sri Lanka, crafting cinematic stories through film, emotion and visual storytelling.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${sinhala.variable}`}>
       <body className="bg-bg text-fg min-h-screen">{children}</body>
     </html>
   );

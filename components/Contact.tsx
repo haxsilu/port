@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { director } from "@/lib/content";
+import { availableFor, director } from "@/lib/content";
 
 export default function Contact() {
   return (
@@ -16,8 +16,25 @@ export default function Contact() {
         transition={{ duration: 0.8 }}
         className="tracked font-body text-xs text-fg-faint"
       >
-        05 &mdash; CONTACT
+        07 &mdash; CONTACT
       </motion.span>
+
+      <motion.ul
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.05 }}
+        className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
+      >
+        {availableFor.map((item) => (
+          <li
+            key={item}
+            className="font-body text-sm font-light text-fg-dim"
+          >
+            {item}
+          </li>
+        ))}
+      </motion.ul>
 
       <motion.a
         data-cursor="link"

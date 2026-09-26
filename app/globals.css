@@ -17,9 +17,9 @@
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
   --font-display: -apple-system, BlinkMacSystemFont, var(--font-inter),
-    "Helvetica Neue", Arial, sans-serif;
+    var(--font-sinhala), "Helvetica Neue", Arial, sans-serif;
   --font-body: -apple-system, BlinkMacSystemFont, var(--font-inter),
-    "Helvetica Neue", Arial, sans-serif;
+    var(--font-sinhala), "Helvetica Neue", Arial, sans-serif;
 }
 
 * {

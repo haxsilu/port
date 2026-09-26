@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { films } from "@/lib/content";
+import { behindTheScenes, films, filmographyIntro, filmStills } from "@/lib/content";
 import { posterGradient } from "@/lib/poster";
 
 export default function Filmography() {
@@ -13,7 +14,17 @@ export default function Filmography() {
     <section id="filmography" className="relative px-6 py-28 md:px-10 md:py-40">
       <SectionLabel index="01" title="Selected Filmography" />
 
-      <div className="relative mt-16 border-t border-line">
+      <motion.p
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-10%" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-balance mt-8 max-w-xl font-body text-base font-light leading-relaxed text-fg-dim"
+      >
+        {filmographyIntro}
+      </motion.p>
+
+      <div className="relative mt-14 border-t border-line">
         {films.map((film, i) => {
           const isActive = activeId === film.id;
           const isOpen = openId === film.id;
@@ -30,13 +41,26 @@ export default function Filmography() {
                   <span className="tracked font-body text-xs text-fg-faint">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-display text-2xl font-semibold tracking-tight text-fg-dim transition-colors duration-500 group-hover:text-fg md:text-4xl">
+                  <span
+                    lang={film.lang}
+                    className="font-display text-2xl font-semibold tracking-tight text-fg-dim transition-colors duration-500 group-hover:text-fg md:text-4xl"
+                  >
                     {film.title}
                   </span>
                 </span>
                 <span className="flex shrink-0 items-baseline gap-4 font-body text-xs text-fg-faint md:gap-8 md:text-sm">
                   <span className="hidden md:inline">{film.role}</span>
-                  <span>{film.year}</span>
+                  <span className="flex items-baseline gap-2">
+                    {film.videoId && (
+                      <span
+                        aria-hidden="true"
+                        className="text-[0.6em] leading-none text-fg-dim transition-colors duration-500 group-hover:text-fg"
+                      >
+                        &#9654;
+                      </span>
+                    )}
+                    {film.format}
+                  </span>
                 </span>
 
                 {/* Poster panel reveal */}
@@ -47,12 +71,23 @@ export default function Filmography() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.97 }}
                       transition={{ duration: 0.35, ease: "easeOut" }}
-                      className="pointer-events-none absolute right-24 top-1/2 z-10 hidden h-40 w-28 -translate-y-1/2 overflow-hidden md:block"
-                      style={{ background: posterGradient(film.id) }}
+                      // 16:9, not a portrait poster: these frames carry the
+                      // film's title across the middle, and a portrait crop
+                      // would cut the words off at both ends.
+                      className="pointer-events-none absolute right-24 top-1/2 z-10 hidden aspect-video w-56 -translate-y-1/2 overflow-hidden bg-black md:block"
+                      style={
+                        film.poster ? undefined : { background: posterGradient(film.id) }
+                      }
                     >
-                      <div className="absolute bottom-2 left-2 tracked font-body text-[9px] text-fg-dim/70">
-                        {film.year}
-                      </div>
+                      {film.poster && (
+                        <Image
+                          src={film.poster}
+                          alt=""
+                          fill
+                          sizes="224px"
+                          className="object-cover"
+                        />
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -67,25 +102,33 @@ export default function Filmography() {
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="grid grid-cols-1 gap-6 pb-9 md:grid-cols-[1fr_2fr] md:gap-12">
-                      <div
-                        className="h-40 w-full md:h-48"
-                        style={{ background: posterGradient(film.id) }}
-                      />
+                    <div className="grid grid-cols-1 gap-6 pb-9 md:grid-cols-[2fr_1fr] md:gap-12">
+                      {film.videoId ? (
+                        <div className="relative aspect-video w-full overflow-hidden bg-black">
+                          <iframe
+                            // Mounted only while the row is open, so four
+                            // players never load at once.
+                            src={`https://www.youtube-nocookie.com/embed/${film.videoId}?rel=0&modestbranding=1`}
+                            title={film.title}
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="absolute inset-0 h-full w-full"
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className="h-40 w-full md:h-48"
+                          style={{ background: posterGradient(film.id) }}
+                        />
+                      )}
                       <div className="flex flex-col justify-center gap-4">
                         <p className="font-body text-base font-light leading-relaxed text-fg-dim md:text-lg">
                           {film.synopsis}
                         </p>
-                        <ul className="flex flex-col gap-1.5">
-                          {film.festivals.map((f) => (
-                            <li
-                              key={f}
-                              className="tracked-tight font-body text-xs text-fg-faint"
-                            >
-                              {f}
-                            </li>
-                          ))}
-                        </ul>
+                        <p className="tracked-tight font-body text-xs text-fg-faint md:hidden">
+                          {film.role}
+                        </p>
                       </div>
                     </div>
                   </motion.div>
@@ -95,6 +138,28 @@ export default function Filmography() {
           );
         })}
       </div>
+    <div className="mt-28 md:mt-40">
+      <span className="tracked font-body text-xs text-fg-faint">STILLS</span>
+      {/* Two columns rather than a fixed grid: these frames are 16:9, 3:2 and
+          4:3, and a common cell would crop them unevenly. */}
+      <div className="mt-6 gap-3 md:columns-2 md:gap-4 [&>*]:mb-3 md:[&>*]:mb-4">
+        {[...filmStills, ...behindTheScenes.filter((b) => b.orientation === "portrait")].map((still) => (
+          <figure
+            key={still.src}
+            className="relative block w-full break-inside-avoid overflow-hidden bg-black"
+          >
+            <Image
+              src={still.src}
+              alt={still.alt}
+              width={still.width ?? (still.orientation === "portrait" ? 1333 : 1280)}
+              height={still.height ?? (still.orientation === "portrait" ? 2000 : 720)}
+              sizes="(max-width: 768px) 100vw, 45vw"
+              className="h-auto w-full"
+            />
+          </figure>
+        ))}
+      </div>
+    </div>
     </section>
   );
 }

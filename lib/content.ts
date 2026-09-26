@@ -1,81 +1,85 @@
-// Placeholder content — replace with the real director's details.
-// Everything the site renders is sourced from this file.
+// All site copy lives here. Edit this file to change what the site says.
 
 export const director = {
-  name: "ELIAS MARR",
-  roles: ["Director", "Editor", "Storyteller"],
+  name: "PULINDU",
+  roles: ["Film Director", "Editor", "Storyteller"],
   manifesto:
-    "I make films about the space between what people say and what they mean. Every cut is a decision about what the audience is allowed to feel, and when.",
-  email: "hello@eliasmarr.com",
+    "Crafting cinematic stories through film, emotion, and visual storytelling.",
+  location: "Sri Lanka",
+  // TODO: replace with the real address and profiles before launch.
+  email: "hello@pulindu.com",
   socials: [
     { label: "Instagram", href: "https://instagram.com" },
+    { label: "YouTube", href: "https://youtube.com" },
     { label: "Vimeo", href: "https://vimeo.com" },
-    { label: "IMDb", href: "https://imdb.com" },
-    { label: "Letterboxd", href: "https://letterboxd.com" },
+    { label: "LinkedIn", href: "https://linkedin.com" },
   ],
 };
 
 export type Film = {
   id: string;
   title: string;
-  year: string;
+  format: string;
   role: string;
-  festivals: string[];
   synopsis: string;
+  lang?: string; // BCP-47 tag when the title is not in Latin script
+  videoId?: string; // YouTube id; the player only mounts when the row opens
+  poster?: string; // 16:9 frame shown on hover
 };
+
+export const filmographyIntro =
+  "A collection of narrative films exploring human stories, emotion, identity, and imagination.";
 
 export const films: Film[] = [
   {
-    id: "hollow-light",
-    title: "Hollow Light",
-    year: "2024",
-    role: "Director, Editor",
-    festivals: ["Sundance — Official Selection", "TIFF — Discovery"],
+    id: "driver",
+    title: "Driver",
+    format: "Short Film",
+    role: "Director, Editor, Producer",
     synopsis:
-      "A lighthouse keeper's last winter, told entirely in the hours before dawn.",
+      "A character-driven narrative following a driver's journey through a pivotal moment that changes everything.",
+    videoId: "i6pFoCD-ljo",
+    poster: "/images/films/driver.jpg",
   },
   {
-    id: "static-bloom",
-    title: "Static Bloom",
-    year: "2023",
-    role: "Director",
-    festivals: ["Cannes — Directors' Fortnight", "Sundance"],
+    id: "the-last-fix",
+    title: "The Last Fix",
+    format: "Short Film",
+    role: "Director, Editor, Producer",
     synopsis:
-      "Two estranged sisters rebuild their mother's radio station over one summer.",
+      "Set in a futuristic world, a story exploring technology, humanity, and the consequences of the choices we make.",
+    videoId: "sQcNt6jvkqE",
+    poster: "/images/films/the-last-fix.jpg",
   },
   {
-    id: "the-quiet-machine",
-    title: "The Quiet Machine",
-    year: "2022",
-    role: "Editor",
-    festivals: ["Berlinale — Panorama"],
+    id: "ralahami",
+    title: "රාලහාමී",
+    format: "Short Film",
+    role: "Director, Editor, Producer",
+    lang: "si",
     synopsis:
-      "A factory town automates itself out of existence, and no one notices until it's done.",
+      "A Sri Lankan narrative rooted in local culture, character, and tradition.",
+    videoId: "fiYC3ztm_cQ",
+    poster: "/images/films/ralahami.jpg",
   },
   {
-    id: "low-tide",
-    title: "Low Tide",
-    year: "2021",
-    role: "Director, Editor",
-    festivals: ["Venice — Orizzonti", "AFI Fest"],
+    id: "script",
+    title: "Script",
+    format: "Short Film",
+    role: "Director, Editor, Producer",
     synopsis:
-      "A coastal search-and-rescue crew keeps looking long after everyone else has stopped.",
+      "A meta-cinematic story exploring storytelling itself and the relationship between creator and creation.",
+    videoId: "Q59MtGgoE5g",
+    poster: "/images/films/script.jpg",
   },
   {
-    id: "paper-moons",
-    title: "Paper Moons",
-    year: "2020",
-    role: "Director",
-    festivals: ["SXSW — Narrative Feature Competition"],
-    synopsis: "A father teaches his daughter to forge his own signature.",
-  },
-  {
-    id: "afterglow",
-    title: "Afterglow",
-    year: "2019",
-    role: "Editor",
-    festivals: ["Tribeca"],
-    synopsis: "The last night shift at a shuttering amusement park.",
+    id: "unfinished-prayer",
+    title: "Unfinished Prayer",
+    format: "Short Film",
+    role: "Director, Editor, Producer",
+    synopsis:
+      "A story of faith, loss, and unresolved emotions as a young man confronts the weight of unfinished moments in his life.",
+    poster: "/images/bts/grave-scene.jpg",
   },
 ];
 
@@ -84,75 +88,366 @@ export type FeaturedProject = {
   title: string;
   year: string;
   description: string;
-  embedUrl?: string; // Vimeo/YouTube embed URL — omit to show a placeholder frame
+  image?: string; // still used for the frame when there is no embed yet
+  embedUrl?: string; // Vimeo/YouTube embed URL — takes precedence over image
 };
 
 export const featuredProjects: FeaturedProject[] = [
   {
-    id: "hollow-light-feature",
-    title: "Hollow Light",
-    year: "2024",
+    id: "unfinished-prayer-feature",
+    title: "Unfinished Prayer",
+    year: "In Production",
     description:
-      "Shot over eleven nights on 16mm, Hollow Light follows a lighthouse keeper counting down his final winter on the rock. The film was built in the edit — three hundred hours of tide, fog, and static, cut down to eighty-two minutes of near-silence.",
-  },
-  {
-    id: "static-bloom-feature",
-    title: "Static Bloom",
-    year: "2023",
-    description:
-      "A study in restraint: two sisters, one radio tower, and the summer they stop pretending they don't miss each other. Premiered at Cannes' Directors' Fortnight to a nine-minute standing ovation.",
+      "A narrative short exploring faith, loss, and the emotional struggle of a young man confronting the unfinished moments in his life. Directed, edited and produced independently.",
+    image: "/images/bts/grave-scene.jpg",
   },
 ];
 
-export type AwardEntry = {
+// The career so far. The left column is deliberately an age rather than a
+// date — the story here is how early it started.
+export type Milestone = {
   year: string;
   title: string;
   detail: string;
+  image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageCredit?: string;
 };
 
-export const awards: AwardEntry[] = [
+export const milestones: Milestone[] = [
   {
-    year: "2024",
-    title: "Sundance Film Festival",
-    detail: "Official Selection — Hollow Light",
+    year: "Age 13",
+    title: "Started Editing Professionally",
+    detail: "Working with international clients from Sri Lanka.",
+  },
+  {
+    year: "Age 15",
+    title: "Founded a Creative Agency",
+    detail: "Grew to serve more than 200 clients.",
+  },
+  {
+    year: "Certified",
+    title: "DaVinci Resolve",
+    detail: "Certified editor and colourist.",
   },
   {
     year: "2024",
-    title: "TIFF Discovery",
-    detail: "Programmed Feature — Hollow Light",
+    title: "Beyond the Waves — Second Place",
+    detail:
+      "All-Island Short Video Competition, held for UN World Tourism Day.",
+    image: "/images/award-beyond-the-waves.jpg",
+    imageAlt:
+      "Receiving the award on stage at the University of Colombo's World Tourism Day ceremony.",
+    imageWidth: 2000,
+    imageHeight: 1331,
+    // The photograph is Travel Voice Media's; the credit stays with it.
+    imageCredit: "Photograph: Travel Voice Media",
   },
   {
-    year: "2023",
-    title: "Cannes Directors' Fortnight",
-    detail: "Official Selection — Static Bloom",
-  },
-  {
-    year: "2023",
-    title: "Independent Spirit Awards",
-    detail: "Nominee, Best Editing — Static Bloom",
-  },
-  {
-    year: "2022",
-    title: "Berlinale Panorama",
-    detail: "Official Selection — The Quiet Machine",
-  },
-  {
-    year: "2021",
-    title: "Venice Orizzonti",
-    detail: "Official Selection — Low Tide",
-  },
-  {
-    year: "2020",
-    title: "SXSW",
-    detail: "Narrative Feature Competition — Paper Moons",
+    year: "Now",
+    title: "Directing Narrative Film",
+    detail: "Developing original stories and building creative businesses.",
   },
 ];
 
+// The three ventures, in the order they should read.
+export type Venture = {
+  id: string;
+  name: string;
+  description: string;
+};
+
+export const ventures: Venture[] = [
+  {
+    id: "spectrum-studio",
+    name: "Spectrum Studio",
+    description:
+      "A film and television production company developing original stories, producing independent films, and collaborating with filmmakers around the world.",
+  },
+  {
+    id: "spectrum-media",
+    name: "Spectrum Media",
+    description:
+      "Creative production services for commercial content, branded storytelling, editing, and visual content creation.",
+  },
+  {
+    id: "spectrum-connect",
+    name: "Spectrum Connect",
+    description:
+      "A creator-client platform helping creative professionals connect, collaborate, and work together without traditional commission structures.",
+  },
+];
+
+export type Still = {
+  src: string;
+  alt: string;
+  orientation: "portrait" | "landscape";
+  width?: number;
+  height?: number;
+};
+
+export const behindTheScenes: Still[] = [
+  {
+    src: "/images/bts/crew-gate.jpg",
+    alt: "The crew blocking a scene at a cemetery gate, a boom operator standing by.",
+    orientation: "landscape",
+  },
+  {
+    src: "/images/bts/priest-blessing.jpg",
+    alt: "The priest in white robe and black stole, hand raised mid-blessing among the graves.",
+    orientation: "portrait",
+  },
+  {
+    src: "/images/bts/gimbal-setup.jpg",
+    alt: "Balancing the camera on a gimbal before a take, crew gathered around.",
+    orientation: "landscape",
+  },
+  {
+    src: "/images/bts/grave-dialogue.jpg",
+    alt: "The priest and lead actor rehearsing beside an open grave.",
+    orientation: "portrait",
+  },
+  {
+    src: "/images/bts/operator-garden.jpg",
+    alt: "Operator lining up a low shot on the gimbal while direction is given over his shoulder.",
+    orientation: "portrait",
+  },
+  {
+    src: "/images/bts/monitor-check.jpg",
+    alt: "Checking the last take on a phone, the rig still up between setups.",
+    orientation: "landscape",
+  },
+  {
+    src: "/images/bts/priest-gravedigger.jpg",
+    alt: "The priest and the gravedigger in position, the grave dug and waiting.",
+    orientation: "portrait",
+  },
+  {
+    src: "/images/bts/camera-rig.jpg",
+    alt: "The camera rig handed between crew, cabled and ready for the next take.",
+    orientation: "landscape",
+  },
+];
+
+// Graded frames from the films themselves, as distinct from the on-set
+// photography above. Natural aspects are kept — they are not all 16:9.
+export const filmStills: Still[] = [
+  {
+    src: "/images/stills/cast.jpg",
+    alt: "The cast photographed together against a painted backdrop.",
+    orientation: "landscape",
+    width: 1280,
+    height: 993,
+  },
+  {
+    src: "/images/stills/revolver.jpg",
+    alt: "A revolver drawn low, the room falling away into teal shadow.",
+    orientation: "landscape",
+    width: 1280,
+    height: 720,
+  },
+  {
+    src: "/images/stills/reading.jpg",
+    alt: "Two men in a dim room, one reading aloud from a sheaf of papers.",
+    orientation: "landscape",
+    width: 1280,
+    height: 853,
+  },
+  {
+    src: "/images/stills/workshop.jpg",
+    alt: "Old equipment on a workshop shelf, lit by a single bare bulb.",
+    orientation: "landscape",
+    width: 1280,
+    height: 720,
+  },
+];
+
+export const btsIntro =
+  "From the set of Unfinished Prayer — shot on location in Sri Lanka.";
+
+// Editing and post. The reel slot is empty until there is a reel to point at;
+// until then the section leans on the craft and the track record.
+export const editing = {
+  intro:
+    "Before I directed, I cut. Seven years in the timeline — for international clients from the age of thirteen, and for more than two hundred through the agency I built at fifteen.",
+  // TODO: drop in a YouTube id for the reel and the still below is replaced
+  // by the player automatically.
+  reelVideoId: "",
+  // Shown while there is no reel; once reelVideoId is set the player takes
+  // the lead and this drops below it.
+  stills: [
+    {
+      src: "/images/editing-timeline.jpg",
+      alt: "Cutting a sequence in Premiere Pro in a sound-treated edit room.",
+      width: 1333,
+      height: 2000,
+    },
+  ],
+  disciplines: [
+    {
+      name: "Editing",
+      description:
+        "Pace and rhythm. Deciding what the audience sees, and when they are allowed to see it.",
+    },
+    {
+      name: "Colour",
+      description:
+        "Certified in DaVinci Resolve. Grading for mood and continuity rather than for a look.",
+    },
+    {
+      name: "Post Production",
+      description:
+        "Sound, titles and delivery — the work between the last take and the first screening.",
+    },
+  ],
+};
+
+export type EditedWork = {
+  id: string;
+  title: string;
+  format: string;
+  thumb: string;
+  videoId?: string; // YouTube
+  src?: string; // self-hosted mp4
+  square?: boolean; // 1:1 social cut, not 16:9
+  category: EditCategory;
+};
+
+export type EditCategory = "commercial" | "documentary" | "gaming";
+
+// Order matters: commercial and documentary lead, gaming sits last, so the
+// section opens on the work that speaks to film and client briefs.
+export const editCategories: { id: EditCategory; label: string }[] = [
+  { id: "commercial", label: "Commercial & Branded" },
+  { id: "documentary", label: "Documentary & Content" },
+  { id: "gaming", label: "Gaming" },
+];
+
+export const editedWork: EditedWork[] = [
+  {
+    id: "live-in-perth",
+    title: "Live in Perth",
+    format: "Concert Promo",
+    // Self-hosted rather than embedded from Drive: Drive applies a daily view
+    // quota and starts refusing playback once a file gets traffic.
+    src: "/video/live-in-perth.mp4",
+    thumb: "/images/edits/live-in-perth.jpg",
+    category: "commercial",
+  },
+  {
+    id: "crypto",
+    title: "Crypto Strategy",
+    format: "Content Edit",
+    src: "/video/crypto.mp4",
+    thumb: "/images/edits/crypto.jpg",
+    category: "commercial",
+  },
+  {
+    id: "promo70",
+    title: "Telemedicine",
+    format: "Social Ad",
+    src: "/video/promo70.mp4",
+    thumb: "/images/edits/telemedicine.jpg",
+    square: true,
+    category: "commercial",
+  },
+  {
+    id: "main2",
+    title: "Commentary",
+    format: "Talking Head Edit",
+    src: "/video/main2.mp4",
+    thumb: "/images/edits/main2.jpg",
+    category: "documentary",
+  },
+  {
+    id: "samle",
+    title: "Flee the Facility",
+    format: "Roblox Edit",
+    src: "/video/samle.mp4",
+    thumb: "/images/edits/flee-the-facility.jpg",
+    category: "documentary",
+  },
+  {
+    id: "dahmer",
+    title: "Dahmer",
+    format: "Documentary Edit",
+    src: "/video/dahmer.mp4",
+    thumb: "/images/edits/dahmer.jpg",
+    category: "documentary",
+  },
+  {
+    id: "abacus",
+    title: "Abacus",
+    format: "Apex Legends Montage",
+    videoId: "N1kuv9aOfIE",
+    // Frame pulled from the video rather than YouTube's own thumbnail.
+    thumb: "/images/edits/abacus.jpg",
+    category: "gaming",
+  },
+  {
+    id: "stance",
+    title: "Stance",
+    format: "Apex Legends Montage",
+    videoId: "KD1zBRhp8Ig",
+    thumb: "/images/edits/stance.jpg",
+    category: "gaming",
+  },
+  {
+    id: "warp",
+    title: "Warp",
+    format: "Valorant 3D Montage",
+    videoId: "GPoyXyFMULg",
+    thumb: "/images/edits/warp.jpg",
+    category: "gaming",
+  },
+  {
+    id: "crank-that",
+    title: "Crank That",
+    format: "Valorant Edit",
+    videoId: "oQxBl8YMt2A",
+    thumb: "/images/edits/crank-that.jpg",
+    category: "gaming",
+  },
+];
+
+export const vision =
+  "To build an ecosystem where creativity, collaboration, and storytelling come together under one unified platform.";
+
+// One list. Services and Skills were two overlapping lists — "Video Editing"
+// against "Editing", "Color Grading" against "Color Grading" — which read as
+// padding rather than range.
+export const capabilities = [
+  "Directing",
+  "Editing",
+  "Colour Grading",
+  "Screenwriting",
+  "Story Development",
+  "Post Production",
+  "Commercial Production",
+  "Creative Strategy",
+];
+
+export const availableFor = [
+  "Film Projects",
+  "Commercial Work",
+  "Creative Collaborations",
+  "Partnerships",
+  "Speaking Opportunities",
+];
+
 export const about = {
-  heading: "Nine years, six films, one obsession with the space before things happen.",
+  portrait: "/images/portrait.jpg",
+  portraitAlt: "Pulindu, photographed in black and white.",
+  portraitWidth: 1066,
+  portraitHeight: 1600,
+  heading:
+    "Seven years behind the timeline, now telling the stories from the front.",
   paragraphs: [
-    "I started as an editor because I wanted to know how time actually works in a story — not how it's written, how it's felt. That's still the job, even now that I direct.",
-    "My films are slow on purpose. I'm interested in the moment right before a decision, the held breath before someone tells the truth. Audiences call it quiet. I call it honest.",
-    "Based between Lisbon and wherever the next film is shooting. Currently developing a fourth feature.",
+    "I am a filmmaker, editor, and creative entrepreneur from Sri Lanka.",
+    "My journey began with editing and post-production, eventually evolving into directing narrative films and developing original creative projects.",
+    "Today my focus is creating meaningful cinematic experiences while building platforms that empower creators and storytellers.",
+    "My work combines visual precision, emotional storytelling, and a commitment to films that leave a lasting impact.",
   ],
 };

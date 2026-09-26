@@ -9,8 +9,10 @@ import ScrollProgress from "@/components/ScrollProgress";
 import Hero from "@/components/Hero";
 import Filmography from "@/components/Filmography";
 import FeaturedWork from "@/components/FeaturedWork";
+import Editing from "@/components/Editing";
 import About from "@/components/About";
-import AwardsTimeline from "@/components/AwardsTimeline";
+import Journey from "@/components/Journey";
+import Ventures from "@/components/Ventures";
 import Contact from "@/components/Contact";
 
 const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
@@ -32,8 +34,10 @@ export default function Home() {
         <Hero start={introDone} />
         <Filmography />
         <FeaturedWork />
+        <Editing />
         <About />
-        <AwardsTimeline />
+        <Journey />
+        <Ventures />
         <Contact />
       </main>
     </>

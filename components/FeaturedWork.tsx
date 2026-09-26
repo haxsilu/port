@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { featuredProjects } from "@/lib/content";
 import { posterGradient } from "@/lib/poster";
@@ -8,7 +9,7 @@ import { SectionLabel } from "./Filmography";
 export default function FeaturedWork() {
   return (
     <section id="work" className="relative px-6 py-28 md:px-10 md:py-40">
-      <SectionLabel index="02" title="Featured Work" />
+      <SectionLabel index="02" title="Current Project" />
 
       <div className="mt-20 flex flex-col gap-28 md:gap-40">
         {featuredProjects.map((project, i) => (
@@ -22,7 +23,12 @@ export default function FeaturedWork() {
               i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
             }`}
           >
-            <Frame id={project.id} embedUrl={project.embedUrl} title={project.title} />
+            <Frame
+              id={project.id}
+              embedUrl={project.embedUrl}
+              image={project.image}
+              title={project.title}
+            />
 
             <div>
               <span className="tracked font-body text-xs text-fg-faint">{project.year}</span>
@@ -37,7 +43,6 @@ export default function FeaturedWork() {
         ))}
       </div>
 
-      <BehindTheScenesStrip />
     </section>
   );
 }
@@ -45,12 +50,28 @@ export default function FeaturedWork() {
 function Frame({
   id,
   embedUrl,
+  image,
   title,
 }: {
   id: string;
   embedUrl?: string;
+  image?: string;
   title: string;
 }) {
+  if (!embedUrl && image) {
+    return (
+      <div className="relative aspect-video w-full overflow-hidden bg-black">
+        <Image
+          src={image}
+          alt={`Still from ${title}`}
+          fill
+          sizes="(max-width: 768px) 100vw, 60vw"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   if (embedUrl) {
     return (
       <div className="relative aspect-video w-full overflow-hidden bg-black">
@@ -95,20 +116,3 @@ function Frame({
   );
 }
 
-function BehindTheScenesStrip() {
-  const ids = ["bts-01", "bts-02", "bts-03", "bts-04"];
-  return (
-    <div className="mt-28 md:mt-40">
-      <span className="tracked font-body text-xs text-fg-faint">BEHIND THE SCENES</span>
-      <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-        {ids.map((id) => (
-          <div
-            key={id}
-            className="aspect-[4/5] w-full"
-            style={{ background: posterGradient(id) }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
