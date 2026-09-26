@@ -157,23 +157,29 @@ export type Venture = {
   id: string;
   name: string;
   description: string;
+  // Spectrum Connect is a platform, not a production house. It sits in its
+  // own section so it is not read as part of the film work.
+  kind: "production" | "platform";
 };
 
 export const ventures: Venture[] = [
   {
     id: "spectrum-studio",
+    kind: "production",
     name: "Spectrum Studio",
     description:
       "A film and television production company developing original stories, producing independent films, and collaborating with filmmakers around the world.",
   },
   {
     id: "spectrum-media",
+    kind: "production",
     name: "Spectrum Media",
     description:
       "Creative production services for commercial content, branded storytelling, editing, and visual content creation.",
   },
   {
     id: "spectrum-connect",
+    kind: "platform",
     name: "Spectrum Connect",
     description:
       "A creator-client platform helping creative professionals connect, collaborate, and work together without traditional commission structures.",

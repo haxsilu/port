@@ -13,6 +13,7 @@ import Editing from "@/components/Editing";
 import About from "@/components/About";
 import Journey from "@/components/Journey";
 import Ventures from "@/components/Ventures";
+import Platform from "@/components/Platform";
 import Contact from "@/components/Contact";
 
 const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
@@ -38,6 +39,7 @@ export default function Home() {
         <About />
         <Journey />
         <Ventures />
+        <Platform />
         <Contact />
       </main>
     </>
