@@ -30,7 +30,7 @@ export default function Filmography() {
                   <span className="tracked font-body text-xs text-fg-faint">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-display text-2xl font-light text-fg-dim transition-colors duration-500 group-hover:text-fg md:text-4xl">
+                  <span className="font-display text-2xl font-semibold tracking-tight text-fg-dim transition-colors duration-500 group-hover:text-fg md:text-4xl">
                     {film.title}
                   </span>
                 </span>
@@ -102,7 +102,7 @@ export default function Filmography() {
 export function SectionLabel({ index, title }: { index: string; title: string }) {
   return (
     <div className="flex items-end justify-between gap-6 border-b border-line pb-6">
-      <h2 className="font-display text-3xl font-light text-fg md:text-5xl">{title}</h2>
+      <h2 className="font-display text-3xl font-semibold tracking-tight text-fg md:text-5xl">{title}</h2>
       <span className="tracked font-body text-xs text-fg-faint">{index}</span>
     </div>
   );

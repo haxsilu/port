@@ -22,8 +22,11 @@ export default function Nav({ visible }: { visible: boolean }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Only claim the scroll lock while the menu is actually open, so this
+  // doesn't stomp on the intro sequence's own lock during the reveal.
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
@@ -40,15 +43,14 @@ export default function Nav({ visible }: { visible: boolean }) {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : -12 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 transition-[padding,border-color] duration-500 ${
-          scrolled ? "py-4 border-b border-line" : "py-7 border-b border-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 backdrop-blur-md transition-[padding,border-color,background-color] duration-500 md:px-10 ${
+          scrolled ? "border-b border-line bg-bg/70 py-4" : "border-b border-transparent bg-transparent py-7"
         }`}
-        style={{ mixBlendMode: "difference" }}
       >
         <button
           data-cursor="link"
           onClick={() => go("#top")}
-          className="font-display text-sm tracked-tight text-fg"
+          className="font-display text-sm font-semibold tracked-tight text-fg"
         >
           E. MARR
         </button>
@@ -79,7 +81,7 @@ export default function Nav({ visible }: { visible: boolean }) {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + i * 0.06, duration: 0.6, ease: "easeOut" }}
-                className="font-display text-4xl md:text-6xl font-light text-fg-dim transition-colors duration-300 hover:text-fg"
+                className="font-display text-4xl md:text-6xl font-semibold tracking-tight text-fg-dim transition-colors duration-300 hover:text-fg"
               >
                 {link.label}
               </motion.button>

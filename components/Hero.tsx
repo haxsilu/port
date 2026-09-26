@@ -52,7 +52,7 @@ export default function Hero({ start }: { start: boolean }) {
                 duration: 1.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="font-display block text-[13vw] font-light leading-[0.95] tracking-tight text-fg md:text-[7vw]"
+              className="font-display block text-[13vw] font-semibold leading-[0.95] tracking-tighter text-fg md:text-[7vw]"
             >
               {part}
             </motion.span>

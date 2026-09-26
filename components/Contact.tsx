@@ -26,7 +26,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
-        className="group relative mt-8 font-display text-3xl font-light text-fg sm:text-5xl md:text-6xl"
+        className="group relative mt-8 font-display text-3xl font-semibold tracking-tight text-fg sm:text-5xl md:text-6xl"
       >
         {director.email}
         <span className="absolute -bottom-2 left-0 h-px w-full origin-left scale-x-0 bg-fg transition-transform duration-500 ease-out group-hover:scale-x-100" />

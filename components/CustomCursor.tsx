@@ -3,8 +3,14 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+// Rendered via next/dynamic with ssr:false (see page.tsx) — this never runs
+// on the server, so reading matchMedia in the initializer is safe.
+function isFinePointer() {
+  return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+}
+
 export default function CustomCursor() {
-  const [enabled, setEnabled] = useState(false);
+  const [enabled] = useState(isFinePointer);
   const [hovering, setHovering] = useState(false);
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
@@ -12,9 +18,7 @@ export default function CustomCursor() {
   const springY = useSpring(y, { stiffness: 500, damping: 40, mass: 0.4 });
 
   useEffect(() => {
-    const isFine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    setEnabled(isFine);
-    if (!isFine) return;
+    if (!enabled) return;
 
     const move = (event: PointerEvent) => {
       x.set(event.clientX);
@@ -32,7 +36,7 @@ export default function CustomCursor() {
       window.removeEventListener("pointermove", move);
       window.removeEventListener("pointerover", over);
     };
-  }, [x, y]);
+  }, [enabled, x, y]);
 
   if (!enabled) return null;
 

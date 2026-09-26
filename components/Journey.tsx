@@ -26,7 +26,7 @@ export default function AwardsTimeline() {
               </span>
               <span className="absolute left-[3.2rem] top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-fg md:left-[4.5rem]" />
               <div className="pl-6 md:pl-8">
-                <h4 className="font-display text-lg font-light text-fg md:text-2xl">
+                <h4 className="font-display text-lg font-semibold tracking-tight text-fg md:text-2xl">
                   {award.title}
                 </h4>
                 <p className="mt-1 font-body text-sm font-light text-fg-dim">

@@ -26,7 +26,7 @@ export default function FeaturedWork() {
 
             <div>
               <span className="tracked font-body text-xs text-fg-faint">{project.year}</span>
-              <h3 className="font-display mt-4 text-4xl font-light text-fg md:text-5xl">
+              <h3 className="font-display mt-4 text-4xl font-semibold tracking-tight text-fg md:text-5xl">
                 {project.title}
               </h3>
               <p className="text-balance mt-6 max-w-md font-body text-base font-light leading-relaxed text-fg-dim">

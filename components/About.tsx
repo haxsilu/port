@@ -30,7 +30,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="text-balance font-display max-w-2xl text-2xl font-light leading-snug text-fg md:text-4xl"
+            className="text-balance font-display max-w-2xl text-2xl font-semibold leading-snug tracking-tight text-fg md:text-4xl"
           >
             {about.heading}
           </motion.h3>
