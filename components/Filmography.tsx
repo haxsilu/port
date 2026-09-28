@@ -3,7 +3,13 @@
 import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { behindTheScenes, films, filmographyIntro, filmStills } from "@/lib/content";
+import {
+  behindTheScenes,
+  films,
+  filmographyIntro,
+  filmStills,
+  recognition,
+} from "@/lib/content";
 import { posterGradient } from "@/lib/poster";
 
 export default function Filmography() {
@@ -138,6 +144,46 @@ export default function Filmography() {
           );
         })}
       </div>
+    {/* The award sits with the films rather than in the timeline: it is a
+        result the work got, not a step in the biography. */}
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="mt-28 md:mt-40"
+    >
+      <span className="tracked font-body text-xs text-fg-faint">RECOGNITION</span>
+      <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] md:gap-14">
+        <div className="self-center">
+          <h3 className="font-display text-2xl font-semibold tracking-tight text-fg md:text-4xl">
+            {recognition.title}
+          </h3>
+          <p className="tracked-tight mt-2 font-body text-sm text-fg-dim">
+            {recognition.placing}
+          </p>
+          <p className="mt-5 max-w-sm font-body text-sm font-light leading-relaxed text-fg-dim">
+            {recognition.detail}
+          </p>
+        </div>
+        <figure className="self-start">
+          <div className="relative w-full overflow-hidden bg-black">
+            <Image
+              src={recognition.image}
+              alt={recognition.imageAlt}
+              width={recognition.imageWidth}
+              height={recognition.imageHeight}
+              sizes="(max-width: 768px) 100vw, 45vw"
+              className="h-auto w-full"
+            />
+          </div>
+          <figcaption className="tracked mt-3 font-body text-[10px] text-fg-faint">
+            {recognition.imageCredit}
+          </figcaption>
+        </figure>
+      </div>
+    </motion.div>
+
     <div className="mt-28 md:mt-40">
       <span className="tracked font-body text-xs text-fg-faint">STILLS</span>
       {/* Two columns rather than a fixed grid: these frames are 16:9, 3:2 and

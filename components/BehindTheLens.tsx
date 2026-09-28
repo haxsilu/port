@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { behindTheLensIntro, milestones } from "@/lib/content";
 import { SectionLabel } from "./Filmography";
@@ -43,25 +42,6 @@ export default function BehindTheLens() {
                 <p className="mt-1 font-body text-sm font-light text-fg-dim">
                   {m.detail}
                 </p>
-                {m.image && (
-                  <figure className="mt-6 max-w-lg">
-                    <div className="relative w-full overflow-hidden bg-black">
-                      <Image
-                        src={m.image}
-                        alt={m.imageAlt ?? ""}
-                        width={m.imageWidth ?? 2000}
-                        height={m.imageHeight ?? 1333}
-                        sizes="(max-width: 768px) 100vw, 32rem"
-                        className="h-auto w-full"
-                      />
-                    </div>
-                    {m.imageCredit && (
-                      <figcaption className="tracked mt-3 font-body text-[10px] text-fg-faint">
-                        {m.imageCredit}
-                      </figcaption>
-                    )}
-                  </figure>
-                )}
               </div>
             </motion.li>
           ))}

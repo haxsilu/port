@@ -109,11 +109,19 @@ export type Milestone = {
   year: string;
   title: string;
   detail: string;
-  image?: string;
-  imageAlt?: string;
-  imageWidth?: number;
-  imageHeight?: number;
-  imageCredit?: string;
+};
+
+export const recognition = {
+  title: "Beyond the Waves",
+  placing: "Second Place",
+  detail:
+    "All-Island Short Video Competition, held at the University of Colombo for UN World Tourism Day, 2024.",
+  image: "/images/award-beyond-the-waves.jpg",
+  imageAlt:
+    "Receiving the award on stage at the University of Colombo's World Tourism Day ceremony.",
+  imageWidth: 2000,
+  imageHeight: 1331,
+  imageCredit: "Photograph: Travel Voice Media",
 };
 
 export const behindTheLensIntro =
@@ -145,18 +153,6 @@ export const milestones: Milestone[] = [
     title: "Directed",
     detail:
       "Driver, The Last Fix, රාලහාමී, Script, and Unfinished Prayer.",
-  },
-  {
-    year: "2024",
-    title: "Beyond the Waves — Second Place",
-    detail:
-      "All-Island Short Video Competition, held for UN World Tourism Day.",
-    image: "/images/award-beyond-the-waves.jpg",
-    imageAlt:
-      "Receiving the award on stage at the University of Colombo's World Tourism Day ceremony.",
-    imageWidth: 2000,
-    imageHeight: 1331,
-    imageCredit: "Photograph: Travel Voice Media",
   },
   {
     year: "Founded",
