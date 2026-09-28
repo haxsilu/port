@@ -100,7 +100,7 @@ export default function Editing() {
               <h4 className="font-display text-lg font-semibold tracking-tight text-fg md:text-xl">
                 {cat.label}
               </h4>
-              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
+              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
                 {items.map((w, i) => (
                   <motion.figure
                     key={w.id}

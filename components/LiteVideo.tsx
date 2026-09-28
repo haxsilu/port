@@ -60,12 +60,16 @@ export default function LiteVideo({
       aria-label={`Play ${title}`}
       className={`group relative block ${ratio} w-full overflow-hidden bg-black`}
     >
+      {/* Explicit dimensions rather than `fill`: the poster sits in an
+          aspect-ratio box, and Next measures a fill parent as zero-height
+          before that box has laid out. */}
       <Image
         src={thumb}
         alt=""
-        fill
-        sizes="(max-width: 768px) 100vw, 45vw"
-        className="object-contain transition-opacity duration-500 group-hover:opacity-80"
+        width={1280}
+        height={square ? 1280 : 720}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 30vw"
+        className="h-full w-full object-contain transition-opacity duration-500 group-hover:opacity-80"
       />
       <span className="absolute inset-0 flex items-center justify-center">
         <span className="flex h-14 w-14 items-center justify-center rounded-full border border-fg/40 bg-black/40 backdrop-blur-sm transition-colors duration-300 group-hover:border-fg group-hover:bg-black/60">
