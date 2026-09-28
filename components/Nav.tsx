@@ -8,9 +8,8 @@ const LINKS = [
   { label: "Work", href: "#work" },
   { label: "Editing", href: "#editing" },
   { label: "About", href: "#about" },
-  { label: "Journey", href: "#journey" },
-  { label: "Ventures", href: "#ventures" },
-  { label: "Platform", href: "#platform" },
+  { label: "Behind the Lens", href: "#behind-the-lens" },
+  { label: "Spectrum Verse", href: "#spectrum-verse" },
   { label: "Contact", href: "#contact" },
 ];
 

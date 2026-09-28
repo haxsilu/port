@@ -11,9 +11,8 @@ import Filmography from "@/components/Filmography";
 import FeaturedWork from "@/components/FeaturedWork";
 import Editing from "@/components/Editing";
 import About from "@/components/About";
-import Journey from "@/components/Journey";
-import Ventures from "@/components/Ventures";
-import Platform from "@/components/Platform";
+import BehindTheLens from "@/components/BehindTheLens";
+import SpectrumVerse from "@/components/SpectrumVerse";
 import Contact from "@/components/Contact";
 
 const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
@@ -37,9 +36,8 @@ export default function Home() {
         <FeaturedWork />
         <Editing />
         <About />
-        <Journey />
-        <Ventures />
-        <Platform />
+        <BehindTheLens />
+        <SpectrumVerse />
         <Contact />
       </main>
     </>

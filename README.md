@@ -62,9 +62,15 @@ handing over to the site. Click **SKIP** to jump straight in.
   is `mix-blend-mode: screen`, not `overlay` — overlay leaves near-black
   untouched, so on this palette it would be invisible. Tune the strength via
   `.grain-layer` / `.vignette-layer` / `.scanline-layer` in `app/globals.css`.
-- `components/Hero.tsx`, `Filmography.tsx`, `FeaturedWork.tsx`, `About.tsx`,
-  `AwardsTimeline.tsx`, `Contact.tsx` — the page sections, in the order
-  they're rendered from `app/page.tsx`.
+- `components/Hero.tsx`, `Filmography.tsx`, `FeaturedWork.tsx`, `Editing.tsx`,
+  `About.tsx`, `BehindTheLens.tsx`, `SpectrumVerse.tsx`, `Contact.tsx` — the
+  page sections, in the order they're rendered from `app/page.tsx`. The
+  section numbers (`01`–`07`) are written into each component, so reordering
+  the page means renumbering them by hand.
+- `SpectrumVerse.tsx` holds all three ventures together. Spectrum Connect is
+  a platform rather than a production house; the `role` / `status` line under
+  each name is what keeps that distinction readable, which is the job the
+  old separate "Platform" section used to do.
 - `lib/poster.ts` — generates the grayscale placeholder "posters"/frames used
   for films, trailers, and behind-the-scenes imagery until real artwork is
   available.

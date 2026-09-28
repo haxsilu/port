@@ -16,7 +16,7 @@ export default function Contact() {
         transition={{ duration: 0.8 }}
         className="tracked font-body text-xs text-fg-faint"
       >
-        08 &mdash; CONTACT
+        07 &mdash; CONTACT
       </motion.span>
 
       <motion.ul

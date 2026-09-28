@@ -116,21 +116,35 @@ export type Milestone = {
   imageCredit?: string;
 };
 
+export const behindTheLensIntro =
+  "I was cutting before I was directing, and building before either. This is the order it happened in.";
+
 export const milestones: Milestone[] = [
   {
     year: "Age 13",
     title: "Started Editing Professionally",
-    detail: "Working with international clients from Sri Lanka.",
+    detail: "Working with international clients, from Sri Lanka.",
   },
   {
     year: "Age 15",
     title: "Founded a Creative Agency",
-    detail: "Grew to serve more than 200 clients.",
+    detail: "The first company, built while still at school.",
   },
   {
-    year: "Certified",
-    title: "DaVinci Resolve",
-    detail: "Certified editor and colourist.",
+    year: "200+",
+    title: "Clients",
+    detail: "Commercial, branded and content work across seven years.",
+  },
+  {
+    year: "7 Years",
+    title: "In Post Production",
+    detail: "Editing, colour and finishing. Certified in DaVinci Resolve.",
+  },
+  {
+    year: "5 Films",
+    title: "Directed",
+    detail:
+      "Driver, The Last Fix, රාලහාමී, Script, and Unfinished Prayer.",
   },
   {
     year: "2024",
@@ -142,13 +156,22 @@ export const milestones: Milestone[] = [
       "Receiving the award on stage at the University of Colombo's World Tourism Day ceremony.",
     imageWidth: 2000,
     imageHeight: 1331,
-    // The photograph is Travel Voice Media's; the credit stays with it.
     imageCredit: "Photograph: Travel Voice Media",
   },
   {
-    year: "Now",
-    title: "Directing Narrative Film",
-    detail: "Developing original stories and building creative businesses.",
+    year: "Founded",
+    title: "Spectrum Studio",
+    detail: "Original film and television production.",
+  },
+  {
+    year: "Founded",
+    title: "Spectrum Media",
+    detail: "Commercial production, editing and creative services.",
+  },
+  {
+    year: "Building",
+    title: "Spectrum Connect",
+    detail: "A platform for creators, clients and collaborators.",
   },
 ];
 
@@ -157,15 +180,20 @@ export type Venture = {
   id: string;
   name: string;
   description: string;
-  // Spectrum Connect is a platform, not a production house. It sits in its
-  // own section so it is not read as part of the film work.
+  // Spectrum Connect is a platform, not a production house. The three sit
+  // together under Spectrum Verse, but the kind keeps that distinction legible.
   kind: "production" | "platform";
+  // Short line under the name: what this one is for, and where it stands.
+  role: string;
+  status: string;
 };
 
 export const ventures: Venture[] = [
   {
     id: "spectrum-studio",
     kind: "production",
+    role: "Film and television",
+    status: "Founded",
     name: "Spectrum Studio",
     description:
       "A film and television production company developing original stories, producing independent films, and collaborating with filmmakers around the world.",
@@ -173,6 +201,8 @@ export const ventures: Venture[] = [
   {
     id: "spectrum-media",
     kind: "production",
+    role: "Commercial production",
+    status: "Founded",
     name: "Spectrum Media",
     description:
       "Creative production services for commercial content, branded storytelling, editing, and visual content creation.",
@@ -180,6 +210,8 @@ export const ventures: Venture[] = [
   {
     id: "spectrum-connect",
     kind: "platform",
+    role: "Creator platform",
+    status: "In development",
     name: "Spectrum Connect",
     description:
       "A creator-client platform helping creative professionals connect, collaborate, and work together without traditional commission structures.",
@@ -418,8 +450,14 @@ export const editedWork: EditedWork[] = [
   },
 ];
 
-export const vision =
-  "To build an ecosystem where creativity, collaboration, and storytelling come together under one unified platform.";
+export const spectrumVerse = {
+  title: "Spectrum Verse",
+  intro:
+    "Three companies under one name. Not a brand exercise — a way of covering the whole distance a piece of work travels, from the first idea to the people who finish it.",
+  closing:
+    "Together they cover every stage: the films themselves, the commercial work that sustains them, and the platform that connects the people making both. Stories and the infrastructure to make them, built side by side.",
+};
+
 
 // One list. Services and Skills were two overlapping lists — "Video Editing"
 // against "Editing", "Color Grading" against "Color Grading" — which read as
