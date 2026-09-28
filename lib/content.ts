@@ -160,18 +160,9 @@ export const milestones: Milestone[] = [
   },
   {
     year: "Founded",
-    title: "Spectrum Studio",
-    detail: "Original film and television production.",
-  },
-  {
-    year: "Founded",
-    title: "Spectrum Media",
-    detail: "Commercial production, editing and creative services.",
-  },
-  {
-    year: "Building",
-    title: "Spectrum Connect",
-    detail: "A platform for creators, clients and collaborators.",
+    title: "Spectrum Verse",
+    detail:
+      "The three companies, under one name. Where the work happens now.",
   },
 ];
 
