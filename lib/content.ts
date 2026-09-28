@@ -1,7 +1,7 @@
 // All site copy lives here. Edit this file to change what the site says.
 
 export const director = {
-  name: "PULINDU",
+  name: "PULINDU PANSILU",
   roles: ["Film Director", "Editor", "Storyteller"],
   manifesto:
     "Crafting cinematic stories through film, emotion, and visual storytelling.",
@@ -470,7 +470,7 @@ export const availableFor = [
 
 export const about = {
   portrait: "/images/portrait.jpg",
-  portraitAlt: "Pulindu, photographed in black and white.",
+  portraitAlt: "Pulindu Pansilu, photographed in black and white.",
   portraitWidth: 1066,
   portraitHeight: 1600,
   heading:

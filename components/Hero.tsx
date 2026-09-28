@@ -41,21 +41,22 @@ export default function Hero({ start }: { start: boolean }) {
       />
 
       <div className="relative z-10 max-w-5xl">
-        <div className="mb-8 flex gap-3 overflow-hidden">
+        <div className="mb-8 flex flex-wrap gap-x-3 gap-y-1 md:gap-x-5">
           {nameParts.map((part, i) => (
-            <motion.span
-              key={part}
-              initial={{ y: "110%" }}
-              animate={{ y: start ? "0%" : "110%" }}
-              transition={{
-                delay: 0.15 + i * 0.12,
-                duration: 1.1,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="font-display block text-[13vw] font-semibold leading-[0.95] tracking-tighter text-fg md:text-[7vw]"
-            >
-              {part}
-            </motion.span>
+            <span key={part} className="block overflow-hidden">
+              <motion.span
+                initial={{ y: "110%" }}
+                animate={{ y: start ? "0%" : "110%" }}
+                transition={{
+                  delay: 0.15 + i * 0.12,
+                  duration: 1.1,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="font-display block text-[13vw] font-semibold leading-[0.95] tracking-tighter text-fg md:text-[7vw]"
+              >
+                {part}
+              </motion.span>
+            </span>
           ))}
         </div>
 

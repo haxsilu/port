@@ -54,7 +54,7 @@ export default function Nav({ visible }: { visible: boolean }) {
           onClick={() => go("#top")}
           className="font-display text-sm font-semibold tracked-tight text-fg"
         >
-          PULINDU
+          PULINDU PANSILU
         </button>
 
         <button

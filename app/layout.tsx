@@ -22,9 +22,9 @@ const sinhala = Noto_Sans_Sinhala({
 });
 
 export const metadata: Metadata = {
-  title: "Pulindu — Film Director, Editor, Storyteller",
+  title: "Pulindu Pansilu — Film Director, Editor, Storyteller",
   description:
-    "Pulindu is a film director, editor and storyteller from Sri Lanka, crafting cinematic stories through film, emotion and visual storytelling.",
+    "Pulindu Pansilu is a film director, editor and storyteller from Sri Lanka, crafting cinematic stories through film, emotion and visual storytelling.",
 };
 
 export default function RootLayout({
