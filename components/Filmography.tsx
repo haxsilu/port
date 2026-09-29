@@ -154,27 +154,60 @@ export default function Filmography() {
       className="mt-28 md:mt-40"
     >
       <span className="tracked font-body text-xs text-fg-faint">RECOGNITION</span>
-      <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] md:gap-14">
-        <div className="self-center">
-          <h3 className="font-display text-2xl font-semibold tracking-tight text-fg md:text-4xl">
-            {recognition.title}
-          </h3>
-          <p className="tracked-tight mt-2 font-body text-sm text-fg-dim">
-            {recognition.placing}
-          </p>
-          <p className="mt-5 max-w-sm font-body text-sm font-light leading-relaxed text-fg-dim">
-            {recognition.detail}
-          </p>
-        </div>
-        <figure className="self-start">
-          <div className="relative w-full overflow-hidden bg-black">
+
+      <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-2">
+        <h3 className="font-display text-2xl font-semibold tracking-tight text-fg md:text-4xl">
+          {recognition.title}
+        </h3>
+        <span className="tracked-tight font-body text-sm text-fg-dim">
+          {recognition.placing}
+        </span>
+      </div>
+      <p className="tracked-tight mt-2 font-body text-xs text-fg-faint">
+        {recognition.role}
+      </p>
+      <p className="mt-5 max-w-xl font-body text-sm font-light leading-relaxed text-fg-dim">
+        {recognition.detail}
+      </p>
+
+      <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+        <figure>
+          <a
+            href={recognition.watchUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="link"
+            aria-label={`Watch ${recognition.title} on TikTok`}
+            className="group relative block aspect-video w-full overflow-hidden bg-black"
+          >
+            <Image
+              src={recognition.poster}
+              alt={recognition.posterAlt}
+              width={1280}
+              height={720}
+              sizes="(max-width: 768px) 100vw, 45vw"
+              className="h-full w-full object-cover transition-opacity duration-500 group-hover:opacity-80"
+            />
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-fg/40 bg-black/40 backdrop-blur-sm transition-colors duration-300 group-hover:border-fg group-hover:bg-black/60">
+                <span className="ml-0.5 block h-0 w-0 border-y-[7px] border-l-[11px] border-y-transparent border-l-fg" />
+              </span>
+            </span>
+          </a>
+          <figcaption className="tracked mt-3 font-body text-[10px] text-fg-faint">
+            {recognition.watchLabel}
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div className="relative aspect-video w-full overflow-hidden bg-black">
             <Image
               src={recognition.image}
               alt={recognition.imageAlt}
               width={recognition.imageWidth}
               height={recognition.imageHeight}
               sizes="(max-width: 768px) 100vw, 45vw"
-              className="h-auto w-full"
+              className="h-full w-full object-cover"
             />
           </div>
           <figcaption className="tracked mt-3 font-body text-[10px] text-fg-faint">

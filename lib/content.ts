@@ -114,8 +114,17 @@ export type Milestone = {
 export const recognition = {
   title: "Beyond the Waves",
   placing: "Second Place",
+  role: "Director, Editor, Producer",
   detail:
     "All-Island Short Video Competition, held at the University of Colombo for UN World Tourism Day, 2024.",
+  // TikTok rather than an embed: its player brings a tall, heavily branded
+  // card that would be the loudest thing on the page, and the film is
+  // landscape, so it letterboxes badly inside one.
+  watchUrl:
+    "https://www.tiktok.com/@pansiluofficial/video/7431207238527749384",
+  watchLabel: "Watch on TikTok",
+  poster: "/images/beyond-the-waves.jpg",
+  posterAlt: "A frame from Beyond the Waves: king coconuts on a table by the sand.",
   image: "/images/award-beyond-the-waves.jpg",
   imageAlt:
     "Receiving the award on stage at the University of Colombo's World Tourism Day ceremony.",
