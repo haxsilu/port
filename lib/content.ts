@@ -489,3 +489,21 @@ export const about = {
     "My work combines visual precision, emotional storytelling, and a commitment to films that leave a lasting impact.",
   ],
 };
+
+export type InstagramPost = {
+  src: string;
+  alt: string;
+  // Deep-links to the post itself; falls back to the profile when absent.
+  href?: string;
+};
+
+export const instagram = {
+  handle: "@pulindupansilu",
+  profileUrl: "https://www.instagram.com/pulindupansilu/",
+  cta: "Follow on Instagram",
+  // Hand-picked and self-hosted rather than pulled live. A live feed needs a
+  // Meta app and a long-lived token that lapses every 60 days, and the grid
+  // would render empty the moment it did. Add posts here to fill the grid;
+  // while this is empty the section does not render at all.
+  posts: [] as InstagramPost[],
+};

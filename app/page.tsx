@@ -13,6 +13,7 @@ import Editing from "@/components/Editing";
 import About from "@/components/About";
 import BehindTheLens from "@/components/BehindTheLens";
 import SpectrumVerse from "@/components/SpectrumVerse";
+import Instagram from "@/components/Instagram";
 import Contact from "@/components/Contact";
 
 const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
@@ -38,6 +39,7 @@ export default function Home() {
         <About />
         <BehindTheLens />
         <SpectrumVerse />
+        <Instagram />
         <Contact />
       </main>
     </>
