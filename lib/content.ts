@@ -7,12 +7,10 @@ export const director = {
     "Crafting cinematic stories through film, emotion, and visual storytelling.",
   location: "Sri Lanka",
   email: "pulindupansilu@gmail.com",
-  // TODO: these four still point at each site's homepage, not real profiles.
   socials: [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "YouTube", href: "https://youtube.com" },
-    { label: "Vimeo", href: "https://vimeo.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
+    { label: "Instagram", href: "https://www.instagram.com/pulindupansilu/" },
+    { label: "YouTube", href: "https://www.youtube.com/@pulindupansilu" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/pulindu-pansilu-986458381/" },
   ],
 };
 
