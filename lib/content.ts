@@ -6,8 +6,8 @@ export const director = {
   manifesto:
     "Crafting cinematic stories through film, emotion, and visual storytelling.",
   location: "Sri Lanka",
-  // TODO: replace with the real address and profiles before launch.
-  email: "hello@pulindu.com",
+  email: "pulindupansilu@gmail.com",
+  // TODO: these four still point at each site's homepage, not real profiles.
   socials: [
     { label: "Instagram", href: "https://instagram.com" },
     { label: "YouTube", href: "https://youtube.com" },
