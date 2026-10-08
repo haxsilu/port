@@ -143,8 +143,8 @@ export default function GlobeIntro({ onComplete }: { onComplete: () => void }) {
     // --- earth ---
     const manager = new THREE.LoadingManager();
     const loader = new THREE.TextureLoader(manager);
-    const dayMap = loader.load("/textures/8k_day.jpg");
-    const cloudMap = loader.load("/textures/earth_clouds_1024.png");
+    const dayMap = loader.load("/textures/8k_day.webp");
+    const cloudMap = loader.load("/textures/earth_clouds_1024.webp");
     dayMap.colorSpace = THREE.SRGBColorSpace;
     dayMap.anisotropy = renderer.capabilities.getMaxAnisotropy();
 
@@ -239,11 +239,11 @@ export default function GlobeIntro({ onComplete }: { onComplete: () => void }) {
     // Sri Lanka ~50px of real detail; this NASA crop gives it ~530px, so the
     // island stays sharp once the camera is close. Same trick as Google
     // Earth's level-of-detail tiles.
-    const regionMap = loader.load("/textures/sri_lanka_region.jpg");
+    const regionMap = loader.load("/textures/sri_lanka_region.webp");
     regionMap.colorSpace = THREE.SRGBColorSpace;
     regionMap.anisotropy = renderer.capabilities.getMaxAnisotropy();
     const REGION = REGION_SL;
-    const regionLowMap = loader.load("/textures/sri_lanka_region_low.jpg");
+    const regionLowMap = loader.load("/textures/sri_lanka_region_low.webp");
     regionLowMap.colorSpace = THREE.SRGBColorSpace;
     const regionUniforms = {
       uMap: { value: regionMap },
@@ -309,7 +309,7 @@ export default function GlobeIntro({ onComplete }: { onComplete: () => void }) {
     // thirteen times the NASA tile. At this altitude the global map has
     // nothing left to contribute, so this one is drawn on its own rather
     // than detail-transferred onto the base.
-    const wpMap = loader.load("/textures/western_province.jpg");
+    const wpMap = loader.load("/textures/western_province.webp");
     wpMap.colorSpace = THREE.SRGBColorSpace;
     wpMap.anisotropy = renderer.capabilities.getMaxAnisotropy();
     // This tile is only ever seen magnified, so the mip chain buys nothing
