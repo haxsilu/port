@@ -8,6 +8,7 @@ import {
   films,
   filmographyIntro,
   filmStills,
+  posters,
   recognition,
 } from "@/lib/content";
 import { posterGradient } from "@/lib/poster";
@@ -144,6 +145,45 @@ export default function Filmography() {
           );
         })}
       </div>
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="mt-28 md:mt-40"
+    >
+      <span className="tracked font-body text-xs text-fg-faint">POSTERS</span>
+      <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10">
+        {posters.map((poster) => (
+          <figure key={poster.id}>
+            <div className="relative w-full overflow-hidden bg-black">
+              <Image
+                src={poster.src}
+                alt={poster.alt}
+                width={poster.width}
+                height={poster.height}
+                sizes="(max-width: 640px) 100vw, 45vw"
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption className="mt-4">
+              <h4 className="font-display text-lg font-semibold tracking-tight text-fg md:text-xl">
+                {poster.title}
+              </h4>
+              {poster.tagline && (
+                <p className="mt-1 font-body text-sm font-light italic text-fg-dim">
+                  {poster.tagline}
+                </p>
+              )}
+              <p className="mt-2 font-body text-xs font-light leading-relaxed text-fg-faint">
+                {poster.role}
+              </p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </motion.div>
+
     {/* The award sits with the films rather than in the timeline: it is a
         result the work got, not a step in the biography. */}
     <motion.div

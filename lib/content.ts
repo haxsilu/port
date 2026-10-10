@@ -507,3 +507,38 @@ export const instagram = {
   // while this is empty the section does not render at all.
   posts: [] as InstagramPost[],
 };
+
+export type Poster = {
+  id: string;
+  title: string;
+  tagline?: string;
+  role: string;
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+// Key art, kept at its own 2:3 rather than squeezed into the 16:9 hover
+// panel the film list uses — a landscape crop would cut the titles off.
+export const posters: Poster[] = [
+  {
+    id: "the-last-fix",
+    title: "The Last Fix",
+    role: "Directed and edited by Pulindu Pansilu. A Spectrum Studios production.",
+    src: "/images/posters/the-last-fix.jpg",
+    alt: "The Last Fix poster: a face dissolving into scan lines and interference.",
+    width: 1131,
+    height: 1600,
+  },
+  {
+    id: "step",
+    title: "Step",
+    tagline: "Leave only the footsteps",
+    role: "Directed by Pulindu Pansilu.",
+    src: "/images/posters/step.jpg",
+    alt: "Step poster: a plastic bottle washed up on a beach at sunset, the title mirrored in the tideline.",
+    width: 1066,
+    height: 1600,
+  },
+];
