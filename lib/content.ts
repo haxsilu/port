@@ -2,7 +2,8 @@
 
 // Absolute base for canonical URLs, Open Graph images and the sitemap.
 // Social platforms will not resolve a relative image, so this has to be the
-// real deployed origin. Set NEXT_PUBLIC_SITE_URL at deploy time.
+// real deployed origin. NEXT_PUBLIC_SITE_URL overrides it for previews and
+// staging, where the canonical must not point at production.
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://pulindupansilu.com";
 
