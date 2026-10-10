@@ -2,10 +2,13 @@
 
 // Absolute base for canonical URLs, Open Graph images and the sitemap.
 // Social platforms will not resolve a relative image, so this has to be the
-// real deployed origin. NEXT_PUBLIC_SITE_URL overrides it for previews and
-// staging, where the canonical must not point at production.
+// real deployed origin — and specifically the host that answers 200. Vercel
+// serves this site on www and 308s the apex to it, so the apex cannot be the
+// canonical: it would point every page at a redirect, and an og:image behind
+// a redirect is dropped by some scrapers. NEXT_PUBLIC_SITE_URL overrides it
+// for previews and staging, where the canonical must not point at production.
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://pulindupansilu.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.pulindupansilu.com";
 
 export const director = {
   name: "PULINDU PANSILU",
