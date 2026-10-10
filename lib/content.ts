@@ -546,9 +546,12 @@ export const posters: Poster[] = [
     title: "Step, Step",
     tagline: "Leave only the footsteps",
     role: "Directed by Pulindu Pansilu.",
-    src: "/images/posters/step.jpg",
+    // Renamed on replacement rather than overwritten: Next's image optimizer
+    // and the CDN both cache by URL, so the same path would have kept
+    // serving the old art.
+    src: "/images/posters/step-step.jpg",
     alt: "Step, Step poster: a plastic bottle washed up on a beach at sunset, the title mirrored in the tideline.",
-    width: 1066,
-    height: 1600,
+    width: 1333,
+    height: 2000,
   },
 ];
