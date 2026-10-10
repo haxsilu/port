@@ -41,7 +41,7 @@ export default function Hero({ start }: { start: boolean }) {
       />
 
       <div className="relative z-10 max-w-5xl">
-        <div className="mb-8 flex flex-wrap gap-x-3 gap-y-1 md:gap-x-5">
+        <h1 className="mb-8 flex flex-wrap gap-x-3 gap-y-1 md:gap-x-5">
           {nameParts.map((part, i) => (
             <span key={part} className="block overflow-hidden">
               <motion.span
@@ -58,7 +58,7 @@ export default function Hero({ start }: { start: boolean }) {
               </motion.span>
             </span>
           ))}
-        </div>
+        </h1>
 
         <div className="overflow-hidden">
           <motion.p

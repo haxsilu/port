@@ -1,5 +1,11 @@
 // All site copy lives here. Edit this file to change what the site says.
 
+// Absolute base for canonical URLs, Open Graph images and the sitemap.
+// Social platforms will not resolve a relative image, so this has to be the
+// real deployed origin. Set NEXT_PUBLIC_SITE_URL at deploy time.
+export const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://pulindupansilu.com";
+
 export const director = {
   name: "PULINDU PANSILU",
   roles: ["Film Director", "Editor", "Storyteller"],
