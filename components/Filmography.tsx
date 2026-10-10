@@ -153,7 +153,9 @@ export default function Filmography() {
       className="mt-28 md:mt-40"
     >
       <span className="tracked font-body text-xs text-fg-faint">POSTERS</span>
-      <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10">
+      {/* Sized to match the stills band below rather than running two
+          half-width posters down the page. */}
+      <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
         {posters.map((poster) => (
           <figure key={poster.id}>
             <div className="relative w-full overflow-hidden bg-black">
@@ -162,11 +164,11 @@ export default function Filmography() {
                 alt={poster.alt}
                 width={poster.width}
                 height={poster.height}
-                sizes="(max-width: 640px) 100vw, 45vw"
+                sizes="(max-width: 640px) 50vw, 30vw"
                 className="h-auto w-full"
               />
             </div>
-            <figcaption className="mt-4">
+            <figcaption className="mt-3">
               <h4 className="font-display text-lg font-semibold tracking-tight text-fg md:text-xl">
                 {poster.title}
               </h4>
