@@ -533,6 +533,15 @@ export type Poster = {
 // panel the film list uses — a landscape crop would cut the titles off.
 export const posters: Poster[] = [
   {
+    id: "driver",
+    title: "Driver",
+    role: "Written, shot, directed and edited by Pulindu Pansilu.",
+    src: "/images/posters/driver.jpg",
+    alt: "Driver poster: three young men pressed together in a car at night, a toy car on the dashboard.",
+    width: 1333,
+    height: 2000,
+  },
+  {
     id: "the-last-fix",
     title: "The Last Fix",
     role: "Directed and edited by Pulindu Pansilu. A Spectrum Studios production.",
