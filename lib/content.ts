@@ -38,12 +38,15 @@ export type Film = {
 export const filmographyIntro =
   "A collection of narrative films exploring human stories, emotion, identity, and imagination.";
 
+// Credits are per film, taken from each one's own poster or title block.
+// Pulindu shot Driver himself; The Last Fix had Thevmith De Silva on camera,
+// so it is not a cinematography credit.
 export const films: Film[] = [
   {
     id: "driver",
     title: "Driver",
     format: "Short Film",
-    role: "Director, Editor, Producer",
+    role: "Writer, Director, Cinematographer, Editor",
     synopsis:
       "A character-driven narrative following a driver's journey through a pivotal moment that changes everything.",
     videoId: "i6pFoCD-ljo",
@@ -53,7 +56,7 @@ export const films: Film[] = [
     id: "the-last-fix",
     title: "The Last Fix",
     format: "Short Film",
-    role: "Director, Editor, Producer",
+    role: "Director, Editor",
     synopsis:
       "Set in a futuristic world, a story exploring technology, humanity, and the consequences of the choices we make.",
     videoId: "sQcNt6jvkqE",
