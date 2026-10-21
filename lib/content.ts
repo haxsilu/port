@@ -32,6 +32,7 @@ export type Film = {
   synopsis: string;
   lang?: string; // BCP-47 tag when the title is not in Latin script
   videoId?: string; // YouTube id; the player only mounts when the row opens
+  released?: string; // ISO date, taken from the film's own upload
   poster?: string; // 16:9 frame shown on hover
 };
 
@@ -50,6 +51,7 @@ export const films: Film[] = [
     synopsis:
       "A character-driven narrative following a driver's journey through a pivotal moment that changes everything.",
     videoId: "i6pFoCD-ljo",
+    released: "2024-09-25",
     poster: "/images/films/driver.jpg",
   },
   {
@@ -60,6 +62,7 @@ export const films: Film[] = [
     synopsis:
       "Set in a futuristic world, a story exploring technology, humanity, and the consequences of the choices we make.",
     videoId: "sQcNt6jvkqE",
+    released: "2025-08-26",
     poster: "/images/films/the-last-fix.jpg",
   },
   {
@@ -71,6 +74,7 @@ export const films: Film[] = [
     synopsis:
       "A Sri Lankan narrative rooted in local culture, character, and tradition.",
     videoId: "fiYC3ztm_cQ",
+    released: "2024-07-20",
     poster: "/images/films/ralahami.jpg",
   },
   {
@@ -81,6 +85,7 @@ export const films: Film[] = [
     synopsis:
       "A meta-cinematic story exploring storytelling itself and the relationship between creator and creation.",
     videoId: "Q59MtGgoE5g",
+    released: "2024-07-07",
     poster: "/images/films/script.jpg",
   },
   {
@@ -93,6 +98,7 @@ export const films: Film[] = [
     synopsis:
       "An environmental short set on the shoreline, on what we leave behind — and what should be left instead.",
     videoId: "8511Bd2uphY",
+    released: "2026-10-20",
     poster: "/images/films/step-step.jpg",
   },
 ];

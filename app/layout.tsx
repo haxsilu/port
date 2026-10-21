@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { director, films, posters, siteUrl } from "@/lib/content";
+import { director, films, posters, siteUrl, ventures } from "@/lib/content";
 import "./globals.css";
 
 // Self-hosted rather than next/font/google. The Google Fonts fetch happens at
@@ -86,6 +86,26 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Pulindu Pansilu",
+      inLanguage: "en",
+      publisher: { "@id": `${siteUrl}/#pulindu` },
+    },
+    {
+      // ProfilePage rather than WebPage: the subject of this page is a
+      // person, and that is what Google is being asked to understand.
+      "@type": "ProfilePage",
+      "@id": `${siteUrl}/#page`,
+      url: siteUrl,
+      name: TITLE,
+      description: DESCRIPTION,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      mainEntity: { "@id": `${siteUrl}/#pulindu` },
+      primaryImageOfPage: `${siteUrl}/og-image.jpg`,
+    },
+    {
       "@type": "Person",
       "@id": `${siteUrl}/#pulindu`,
       name: "Pulindu Pansilu",
@@ -96,16 +116,57 @@ const jsonLd = {
       nationality: "Sri Lankan",
       address: { "@type": "PostalAddress", addressCountry: "LK" },
       sameAs: director.socials.map((s) => s.href),
+      knowsAbout: [
+        "Film directing",
+        "Film editing",
+        "Colour grading",
+        "Cinematography",
+        "Post production",
+      ],
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "Film Director",
+        occupationLocation: { "@type": "Country", name: "Sri Lanka" },
+      },
+      founder: ventures.map((v) => ({ "@id": `${siteUrl}/#${v.id}` })),
       award:
         "Second Place, All-Island Short Video Competition, UN World Tourism Day 2024",
     },
+    // The three ventures, so the companies resolve as entities in their own
+    // right rather than as loose words in a paragraph.
+    ...ventures.map((v) => ({
+      "@type": "Organization",
+      "@id": `${siteUrl}/#${v.id}`,
+      name: v.name,
+      description: v.description,
+      founder: { "@id": `${siteUrl}/#pulindu` },
+      url: siteUrl,
+    })),
     ...films.map((film) => ({
       "@type": "Movie",
+      "@id": `${siteUrl}/#film-${film.id}`,
       name: film.title,
       director: { "@id": `${siteUrl}/#pulindu` },
-      editor: { "@id": `${siteUrl}/#pulindu` },
+      ...(film.role.includes("Editor")
+        ? { editor: { "@id": `${siteUrl}/#pulindu` } }
+        : {}),
+      ...(film.lang ? { inLanguage: film.lang } : { inLanguage: "en" }),
+      ...(film.synopsis ? { description: film.synopsis } : {}),
+      ...(film.released ? { datePublished: film.released } : {}),
+      ...(film.poster ? { image: `${siteUrl}${film.poster}` } : {}),
       ...(film.videoId
-        ? { trailer: { "@type": "VideoObject", name: film.title, embedUrl: `https://www.youtube.com/embed/${film.videoId}` } }
+        ? {
+            // thumbnailUrl and embedUrl are what a video result needs; without
+            // them a VideoObject is ignored.
+            trailer: {
+              "@type": "VideoObject",
+              name: film.title,
+              description: film.synopsis,
+              thumbnailUrl: `https://i.ytimg.com/vi/${film.videoId}/maxresdefault.jpg`,
+              embedUrl: `https://www.youtube.com/embed/${film.videoId}`,
+              ...(film.released ? { uploadDate: film.released } : {}),
+            },
+          }
         : {}),
     })),
     ...posters.map((poster) => ({

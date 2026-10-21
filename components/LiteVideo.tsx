@@ -65,7 +65,7 @@ export default function LiteVideo({
           before that box has laid out. */}
       <Image
         src={thumb}
-        alt=""
+        alt={`${title} — still from the edit`}
         width={1280}
         height={square ? 1280 : 720}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 30vw"

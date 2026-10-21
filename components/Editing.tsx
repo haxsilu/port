@@ -76,9 +76,9 @@ export default function Editing() {
               transition={{ duration: 0.8, delay: i * 0.08, ease: "easeOut" }}
               className="grid grid-cols-1 gap-2 border-t border-line py-7 first:border-t-0 first:pt-0 md:grid-cols-[minmax(0,160px)_1fr] md:gap-8"
             >
-              <h4 className="font-display text-lg font-semibold tracking-tight text-fg md:text-xl">
+              <h3 className="font-display text-lg font-semibold tracking-tight text-fg md:text-xl">
                 {d.name}
-              </h4>
+              </h3>
               <p className="max-w-md font-body text-sm font-light leading-relaxed text-fg-dim md:text-base">
                 {d.description}
               </p>

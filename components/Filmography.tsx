@@ -152,7 +152,7 @@ export default function Filmography() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="mt-28 md:mt-40"
     >
-      <span className="tracked font-body text-xs text-fg-faint">POSTERS</span>
+      <h3 className="tracked font-body text-xs text-fg-faint">POSTERS</h3>
       {/* Sized to match the stills band below rather than running two
           half-width posters down the page. */}
       <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
@@ -195,12 +195,12 @@ export default function Filmography() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="mt-28 md:mt-40"
     >
-      <span className="tracked font-body text-xs text-fg-faint">RECOGNITION</span>
+      <h3 className="tracked font-body text-xs text-fg-faint">RECOGNITION</h3>
 
       <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-        <h3 className="font-display text-2xl font-semibold tracking-tight text-fg md:text-4xl">
+        <h4 className="font-display text-2xl font-semibold tracking-tight text-fg md:text-4xl">
           {recognition.title}
-        </h3>
+        </h4>
         <span className="tracked-tight font-body text-sm text-fg-dim">
           {recognition.placing}
         </span>
@@ -260,7 +260,7 @@ export default function Filmography() {
     </motion.div>
 
     <div className="mt-28 md:mt-40">
-      <span className="tracked font-body text-xs text-fg-faint">STILLS</span>
+      <h3 className="tracked font-body text-xs text-fg-faint">STILLS</h3>
       {/* Columns rather than a fixed grid: these frames are 16:9, 3:2 and
           4:3, and a common cell would crop them unevenly. */}
       <div className="mt-6 gap-3 sm:columns-2 md:columns-3 md:gap-4 [&>*]:mb-3 md:[&>*]:mb-4">
