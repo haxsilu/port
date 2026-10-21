@@ -218,6 +218,56 @@ export type Still = {
 
 // Graded frames from the films themselves, as distinct from the on-set
 // photography above. Natural aspects are kept — they are not all 16:9.
+export const behindTheScenes: Still[] = [
+  {
+    src: "/images/bts/grave-scene.jpg",
+    alt: "The crew set up around an open grave, the shot being lined up.",
+    orientation: "landscape",
+    width: 2000,
+    height: 1333,
+  },
+  {
+    src: "/images/bts/crew-gate.jpg",
+    alt: "The crew blocking a scene at a cemetery gate, a boom operator standing by.",
+    orientation: "landscape",
+  },
+  {
+    src: "/images/bts/priest-blessing.jpg",
+    alt: "The priest in white robe and black stole, hand raised mid-blessing among the graves.",
+    orientation: "portrait",
+  },
+  {
+    src: "/images/bts/gimbal-setup.jpg",
+    alt: "Balancing the camera on a gimbal before a take, crew gathered around.",
+    orientation: "landscape",
+  },
+  {
+    src: "/images/bts/grave-dialogue.jpg",
+    alt: "The priest and lead actor rehearsing beside an open grave.",
+    orientation: "portrait",
+  },
+  {
+    src: "/images/bts/operator-garden.jpg",
+    alt: "Operator lining up a low shot on the gimbal while direction is given over his shoulder.",
+    orientation: "portrait",
+  },
+  {
+    src: "/images/bts/monitor-check.jpg",
+    alt: "Checking the last take on a phone, the rig still up between setups.",
+    orientation: "landscape",
+  },
+  {
+    src: "/images/bts/priest-gravedigger.jpg",
+    alt: "The priest and the gravedigger in position, the grave dug and waiting.",
+    orientation: "portrait",
+  },
+  {
+    src: "/images/bts/camera-rig.jpg",
+    alt: "The camera rig handed between crew, cabled and ready for the next take.",
+    orientation: "landscape",
+  },
+];
+
 export const filmStills: Still[] = [
   {
     src: "/images/stills/cast.jpg",
