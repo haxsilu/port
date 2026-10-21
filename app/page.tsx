@@ -8,7 +8,6 @@ import Nav from "@/components/Nav";
 import ScrollProgress from "@/components/ScrollProgress";
 import Hero from "@/components/Hero";
 import Filmography from "@/components/Filmography";
-import FeaturedWork from "@/components/FeaturedWork";
 import Editing from "@/components/Editing";
 import About from "@/components/About";
 import BehindTheLens from "@/components/BehindTheLens";
@@ -34,7 +33,6 @@ export default function Home() {
       <main>
         <Hero start={introDone} />
         <Filmography />
-        <FeaturedWork />
         <Editing />
         <About />
         <BehindTheLens />

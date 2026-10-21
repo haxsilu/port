@@ -8,7 +8,7 @@ import { SectionLabel } from "./Filmography";
 export default function About() {
   return (
     <section id="about" className="relative px-6 py-28 md:px-10 md:py-40">
-      <SectionLabel index="04" title="About" />
+      <SectionLabel index="03" title="About" />
 
       <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,320px)_1fr] md:gap-20">
         <motion.div

@@ -9,7 +9,7 @@ import { SectionLabel } from "./Filmography";
 export default function Editing() {
   return (
     <section id="editing" className="relative px-6 py-28 md:px-10 md:py-40">
-      <SectionLabel index="03" title="Editing &amp; Post" />
+      <SectionLabel index="02" title="Editing &amp; Post" />
 
       <motion.p
         initial={{ opacity: 0, y: 16 }}

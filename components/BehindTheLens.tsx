@@ -7,7 +7,7 @@ import { SectionLabel } from "./Filmography";
 export default function BehindTheLens() {
   return (
     <section id="behind-the-lens" className="relative px-6 py-28 md:px-10 md:py-40">
-      <SectionLabel index="05" title="Behind the Lens" />
+      <SectionLabel index="04" title="Behind the Lens" />
 
       <motion.p
         initial={{ opacity: 0, y: 18 }}

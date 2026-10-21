@@ -62,11 +62,11 @@ handing over to the site. Click **SKIP** to jump straight in.
   is `mix-blend-mode: screen`, not `overlay` — overlay leaves near-black
   untouched, so on this palette it would be invisible. Tune the strength via
   `.grain-layer` / `.vignette-layer` / `.scanline-layer` in `app/globals.css`.
-- `components/Hero.tsx`, `Filmography.tsx`, `FeaturedWork.tsx`, `Editing.tsx`,
-  `About.tsx`, `BehindTheLens.tsx`, `SpectrumVerse.tsx`, `Contact.tsx` — the
-  page sections, in the order they're rendered from `app/page.tsx`. The
-  section numbers (`01`–`07`) are written into each component, so reordering
-  the page means renumbering them by hand.
+- `components/Hero.tsx`, `Filmography.tsx`, `Editing.tsx`, `About.tsx`,
+  `BehindTheLens.tsx`, `SpectrumVerse.tsx`, `Contact.tsx` — the page
+  sections, in the order they're rendered from `app/page.tsx`. The section
+  numbers (`01`–`06`) are written into each component, so adding or removing
+  a section means renumbering the rest by hand.
 - `SpectrumVerse.tsx` holds all three ventures together. Spectrum Connect is
   a platform rather than a production house; the `role` / `status` line under
   each name is what keeps that distinction readable, which is the job the
@@ -78,14 +78,13 @@ handing over to the site. Click **SKIP** to jump straight in.
 ## Swapping in real content
 
 1. **Copy**: edit `lib/content.ts`.
-2. **Posters / stills / portrait**: the placeholders in `Filmography.tsx`,
-   `FeaturedWork.tsx`, and `About.tsx` are plain `<div>`s with a generated
+2. **Posters / stills / portrait**: the placeholders in `Filmography.tsx`
+   and `About.tsx` are plain `<div>`s with a generated
    gradient background. Replace them with `next/image` once you have real
    photography — the surrounding layout (hover reveal, aspect ratios) doesn't
    need to change.
-3. **Trailers**: give a `featuredProjects` entry in `lib/content.ts` an
-   `embedUrl` (a Vimeo or YouTube embed URL) and `FeaturedWork.tsx` will
-   render an `<iframe>` instead of the placeholder frame automatically.
+3. **Trailers**: give a `films` entry in `lib/content.ts` a `videoId` and
+   the row renders a YouTube player when it is opened.
 4. **Fonts/palette**: design tokens (`--bg`, `--fg`, `--fg-dim`, `--fg-faint`,
    `--line`) live in `app/globals.css`. Typography follows Apple's approach:
    the `-apple-system`/`BlinkMacSystemFont` stack renders actual San

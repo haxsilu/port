@@ -95,35 +95,6 @@ export const films: Film[] = [
     videoId: "8511Bd2uphY",
     poster: "/images/films/step-step.jpg",
   },
-  {
-    id: "unfinished-prayer",
-    title: "Unfinished Prayer",
-    format: "Short Film",
-    role: "Director, Editor, Producer",
-    synopsis:
-      "A story of faith, loss, and unresolved emotions as a young man confronts the weight of unfinished moments in his life.",
-    poster: "/images/bts/grave-scene.jpg",
-  },
-];
-
-export type FeaturedProject = {
-  id: string;
-  title: string;
-  year: string;
-  description: string;
-  image?: string; // still used for the frame when there is no embed yet
-  embedUrl?: string; // Vimeo/YouTube embed URL — takes precedence over image
-};
-
-export const featuredProjects: FeaturedProject[] = [
-  {
-    id: "unfinished-prayer-feature",
-    title: "Unfinished Prayer",
-    year: "In Production",
-    description:
-      "A narrative short exploring faith, loss, and the emotional struggle of a young man confronting the unfinished moments in his life. Directed, edited and produced independently.",
-    image: "/images/bts/grave-scene.jpg",
-  },
 ];
 
 // The career so far. The left column is deliberately an age rather than a
@@ -184,7 +155,7 @@ export const milestones: Milestone[] = [
     year: "5 Films",
     title: "Directed",
     detail:
-      "Driver, The Last Fix, රාලහාමී, Script, and Unfinished Prayer.",
+      "Driver, The Last Fix, රාලහාමී, Script, and Step, Step.",
   },
   {
     year: "Founded",
@@ -245,49 +216,6 @@ export type Still = {
   height?: number;
 };
 
-export const behindTheScenes: Still[] = [
-  {
-    src: "/images/bts/crew-gate.jpg",
-    alt: "The crew blocking a scene at a cemetery gate, a boom operator standing by.",
-    orientation: "landscape",
-  },
-  {
-    src: "/images/bts/priest-blessing.jpg",
-    alt: "The priest in white robe and black stole, hand raised mid-blessing among the graves.",
-    orientation: "portrait",
-  },
-  {
-    src: "/images/bts/gimbal-setup.jpg",
-    alt: "Balancing the camera on a gimbal before a take, crew gathered around.",
-    orientation: "landscape",
-  },
-  {
-    src: "/images/bts/grave-dialogue.jpg",
-    alt: "The priest and lead actor rehearsing beside an open grave.",
-    orientation: "portrait",
-  },
-  {
-    src: "/images/bts/operator-garden.jpg",
-    alt: "Operator lining up a low shot on the gimbal while direction is given over his shoulder.",
-    orientation: "portrait",
-  },
-  {
-    src: "/images/bts/monitor-check.jpg",
-    alt: "Checking the last take on a phone, the rig still up between setups.",
-    orientation: "landscape",
-  },
-  {
-    src: "/images/bts/priest-gravedigger.jpg",
-    alt: "The priest and the gravedigger in position, the grave dug and waiting.",
-    orientation: "portrait",
-  },
-  {
-    src: "/images/bts/camera-rig.jpg",
-    alt: "The camera rig handed between crew, cabled and ready for the next take.",
-    orientation: "landscape",
-  },
-];
-
 // Graded frames from the films themselves, as distinct from the on-set
 // photography above. Natural aspects are kept — they are not all 16:9.
 export const filmStills: Still[] = [
@@ -321,8 +249,6 @@ export const filmStills: Still[] = [
   },
 ];
 
-export const btsIntro =
-  "From the set of Unfinished Prayer — shot on location in Sri Lanka.";
 
 // Editing and post. The reel slot is empty until there is a reel to point at;
 // until then the section leans on the craft and the track record.

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  behindTheScenes,
   films,
   filmographyIntro,
   filmStills,
@@ -261,10 +260,10 @@ export default function Filmography() {
 
     <div className="mt-28 md:mt-40">
       <span className="tracked font-body text-xs text-fg-faint">STILLS</span>
-      {/* Two columns rather than a fixed grid: these frames are 16:9, 3:2 and
+      {/* Columns rather than a fixed grid: these frames are 16:9, 3:2 and
           4:3, and a common cell would crop them unevenly. */}
       <div className="mt-6 gap-3 sm:columns-2 md:columns-3 md:gap-4 [&>*]:mb-3 md:[&>*]:mb-4">
-        {[...filmStills, ...behindTheScenes.filter((b) => b.orientation === "portrait")].map((still) => (
+        {filmStills.map((still) => (
           <figure
             key={still.src}
             className="relative block w-full break-inside-avoid overflow-hidden bg-black"

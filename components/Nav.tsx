@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const LINKS = [
   { label: "Films", href: "#filmography" },
-  { label: "Work", href: "#work" },
   { label: "Editing", href: "#editing" },
   { label: "About", href: "#about" },
   { label: "Behind the Lens", href: "#behind-the-lens" },

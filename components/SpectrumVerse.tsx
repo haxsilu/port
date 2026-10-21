@@ -10,7 +10,7 @@ import { SectionLabel } from "./Filmography";
 export default function SpectrumVerse() {
   return (
     <section id="spectrum-verse" className="relative px-6 py-28 md:px-10 md:py-40">
-      <SectionLabel index="06" title="Ventures" />
+      <SectionLabel index="05" title="Ventures" />
 
       <div className="mt-16 max-w-5xl">
         <motion.h3

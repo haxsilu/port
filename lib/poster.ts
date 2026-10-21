@@ -1,5 +1,5 @@
 // Deterministic grayscale placeholder "poster" gradients, keyed by film id.
-// Swap Filmography/FeaturedWork's placeholder <div> for a real <Image> when artwork exists.
+// Swap Filmography's placeholder <div> for a real <Image> when artwork exists.
 function hash(id: string) {
   let h = 0;
   for (let i = 0; i < id.length; i++) {
