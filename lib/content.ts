@@ -84,6 +84,18 @@ export const films: Film[] = [
     poster: "/images/films/script.jpg",
   },
   {
+    id: "step-step",
+    title: "Step, Step",
+    format: "Short Film",
+    // The poster lists only the director credit; the film's own description
+    // also credits him as editor. Story is Kavidu Hansana's.
+    role: "Director, Editor",
+    synopsis:
+      "An environmental short set on the shoreline, on what we leave behind — and what should be left instead.",
+    videoId: "8511Bd2uphY",
+    poster: "/images/films/step-step.jpg",
+  },
+  {
     id: "unfinished-prayer",
     title: "Unfinished Prayer",
     format: "Short Film",
@@ -557,7 +569,7 @@ export const posters: Poster[] = [
     id: "step-step",
     title: "Step, Step",
     tagline: "Leave only the footsteps",
-    role: "Directed by Pulindu Pansilu.",
+    role: "Directed and edited by Pulindu Pansilu. Story by Kavidu Hansana.",
     // Renamed on replacement rather than overwritten: Next's image optimizer
     // and the CDN both cache by URL, so the same path would have kept
     // serving the old art.
